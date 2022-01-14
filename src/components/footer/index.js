@@ -1,8 +1,13 @@
+/* eslint-disable import/no-duplicates */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import styled from 'styled-components';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebook } from '@fortawesome/free-brands-svg-icons';
+import { faGoogle } from '@fortawesome/free-brands-svg-icons';
+import { faTwitter } from '@fortawesome/free-brands-svg-icons';
 
 import { P } from '../typography';
 
@@ -47,7 +52,6 @@ export function FooterStyled() {
           <Astyled href="#">WEBSITE DISCLAIMER</Astyled>
         </Col>
       </RowStyled>
-
       <Row>
         <P>
           Address:
@@ -76,6 +80,19 @@ export function FooterStyled() {
       </Row>
       <Row>
         <P>@2021 Life Australis - All rights reserved</P>
+      </Row>
+      <Row>
+        <Col md={{ span: 4, offset: 4 }} style={{ fontSize: '2rem' }}>
+          <Astyled href="https://www.facebook.com/Google/" style={{ marginRight: '1.5rem' }} target="_blank">
+            <FontAwesomeIcon icon={faFacebook} size="sm" />
+          </Astyled>
+          <Astyled href="https://www.google.com" style={{ marginRight: '1.5rem' }} target="_blank">
+            <FontAwesomeIcon icon={faGoogle} size="sm" />
+          </Astyled>
+          <Astyled href="https://www.twitter.com/" target="_blank">
+            <FontAwesomeIcon icon={faTwitter} size="sm" />
+          </Astyled>
+        </Col>
       </Row>
     </ContainerStyled>
   );
