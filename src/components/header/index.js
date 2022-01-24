@@ -15,6 +15,7 @@ export function Header() {
   // const handleSelect = (eventKey) => alert(`selected ${eventKey}`);
   const [location, setLocation] = useState();
   const [weather, setWeather] = useState();
+  /* const [error, setError] = useState(); */
   const setDefaultCoordinates = () => {
     setLocation({ latitude: 0, longitude: 0 });
   };
@@ -45,13 +46,20 @@ export function Header() {
     if (!location) return;
 
     const api = {
-      key: '96c2f017c7c289536e58d27c22d7d658',
+      key: process.env.REACT_APP_WEATHER_API_KEY,
       base: 'https://api.openweathermap.org/data/2.5/',
     };
 
     fetch(`${api.base}weather?lat=${location.latitude}&lon=${location.longitude}&units=metric&APPID=${api.key}`)
       .then((response) => response.json())
       .then(setWeather)
+      /* ((obj) => {
+        if (obj.code === 200) {
+          setWeather(obj);
+        } else {
+          setError(obj);
+        }
+      }) */
       .catch((err) => {
         console.log('err', err);
       });
